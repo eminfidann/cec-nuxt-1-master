@@ -48,50 +48,48 @@
                   id="login"
                   role="tabpanel"
                 >
-                  <form action="#">
-                    <div class="row">
-                      <div class="col-12 col-lg-12 col-md-12 col-lg-12">
-                        <div class="form-group">
-                          <label class="control-label">Email</label>
-                          <input
-                            type="email"
-                            class="form-control"
-                            placeholder="Username"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-12 col-md-12 col-lg-12">
-                        <div class="form-group">
-                          <label class="control-label">Şifre</label>
-                          <input
-                            type="password"
-                            class="form-control"
-                            placeholder="Password"
-                          />
-                        </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-12 col-md-12 col-lg-12">
+                      <div class="form-group">
+                        <label class="control-label">Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          placeholder="Email"
+                          v-model="email"
+                        />
                       </div>
                     </div>
-                    <div class="row">
-                      <div
-                        class="
-                          col-12 col-lg-12 col-md-12 col-lg-12
-                          d-flex
-                          justify-content-between
-                          login_option
-                        "
+                    <div class="col-12 col-lg-12 col-md-12 col-lg-12">
+                      <div class="form-group">
+                        <label class="control-label">Şifre</label>
+                        <input
+                          type="password"
+                          class="form-control"
+                          placeholder="Password"
+                          v-model="password"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div
+                      class="col-12 col-lg-12 col-md-12 col-lg-12 d-flex justify-content-between login_option"
+                    >
+                      <a
+                        href="forgot-password.html"
+                        title=""
+                        class="forget_pass"
+                        >Şifrenizi mi unuttunuz?</a
                       >
-                        <a
-                          href="forgot-password.html"
-                          title=""
-                          class="forget_pass"
-                          >Şifrenizi mi unuttunuz?</a
-                        >
-                        <button type="submit" class="btn btn-default login_btn">
-                          Giriş Yap
-                        </button>
-                      </div>
+                      <button
+                        class="btn btn-default login_btn"
+                        @click="login()"
+                      >
+                        Giriş Yap
+                      </button>
                     </div>
-                  </form>
+                  </div>
                 </div>
                 <!--/.Panel 1-->
                 <!--Panel 2-->
@@ -131,12 +129,7 @@
                     </div>
                     <div class="row">
                       <div
-                        class="
-                          col-12 col-lg-12 col-md-12 col-lg-12
-                          d-flex
-                          justify-content-between
-                          login_option
-                        "
+                        class="col-12 col-lg-12 col-md-12 col-lg-12 d-flex justify-content-between login_option"
                       >
                         <button type="submit" class="btn btn-default login_btn">
                           Kayıt Ol
@@ -160,8 +153,25 @@
 export default {
   data: function () {
     return {
-      login: {},
+      email: null,
+      password: null,
     };
+  },
+  methods: {
+    login() {
+      const data = {
+        email: this.email,
+        password: this.password,
+      };
+      this.$API.account
+        .login({ ...data })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>

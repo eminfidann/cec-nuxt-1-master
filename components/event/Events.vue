@@ -9,11 +9,7 @@
         </div>
         <!-- EVENT CARDS -->
         <!--  -->
-        <EventCard
-          v-for="event in fetchedEvents"
-          :key="event.id"
-          :event="event"
-        />
+        <EventCard v-for="event in events" :key="event.id" :event="event" />
         <!-- <EventCard v-for="i in 6" :key="i" /> -->
         <!-- Ends: . -->
       </div>
@@ -37,15 +33,21 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      events: [],
+    };
   },
-  computed: {
-    fetchedEvents() {
-      return this.$store.getters.getEvents;
+  created() {
+    this.getEvents();
+  },
+  methods: {
+    getEvents() {
+      this.$API.events.getEvents().then((response) => {
+        this.events = response.data.events;
+      });
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
