@@ -28,7 +28,6 @@ const createStore = () => {
             }
         },
         actions: {
-            /*
             nuxtServerInit(vuexContext, context) {
                 if (!process.client) {
                     console.log("working on server...")
@@ -53,7 +52,6 @@ const createStore = () => {
                         vuexContext.commit("setEvents", eventArray)
                     })
             },
-            */
             setEvents(vuexContext, events) {
                 vuexContext.commit("setEvents", events)
             },

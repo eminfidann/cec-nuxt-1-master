@@ -5,26 +5,22 @@
 </template>
 
 <script>
-import axios from "axios";
-import EventDetail from "@/components/event/EventDetail.vue";
+// import axios from "axios";
 
 export default {
   asyncData(context) {
-    return axios
+    return context.app.$axios
       .get(
-        process.env.baseURL +
-          "events/" +
-          context.params.eventId +
-          ".json" /*this.$route.params.eventId */
-      ) 
+        process.env.baseURL + "events/" + context.params.eventId
+        /* ".json"  */
+        /*this.$route.params.eventId */
+      )
       .then((response) => {
+        console.log(response);
         return {
           singleEvent: response.data,
         };
       });
-  },
-  components: {
-    EventDetail,
   },
 };
 </script>

@@ -15,7 +15,7 @@
                 data-wow-duration="2s"
                 data-wow-delay=".2s"
               >
-                <p>
+                <p class="slider-text">
                   KTU CEC 2008 yılında Karadeniz Teknik Üniversitesi'nde
                   Bilgisayar Mühendisliği Kulübü olarak kurulmuştur. Günümüzde
                   hala çeşitli codenight, gezi, sunum gibi interaktif birçok
@@ -35,5 +35,8 @@
 section {
   position: relative !important;
   margin-top: 140px;
+}
+.slider-text {
+  font-size: 27px !important;
 }
 </style>

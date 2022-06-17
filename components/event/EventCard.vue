@@ -20,55 +20,47 @@
                 />
                -->
 
-            <!--
+            <!-- 
                <img
-                :src="`https://ktucectest.herokuapp.com/media/events/${event.name}%20event%20album/afis.jfif`"
+                :src="`https://ktucectest.herokuapp.com/media/events/${event.image}`"
                 alt=""
-               />
+               /> 
                -->
+
+            <img src="" alt="" />
           </a>
         </div>
       </div>
       <div class="courses_info_wrapper">
         <div class="courses_title">
           <h3>
-            <a href="#">
-              Etkinlik Adı : Codenight
-              <!-- {{ event.name }} -->
-            </a>
+            <a href="#"> Etkinlik Adı : {{ event.name }} </a>
           </h3>
-          <div class="teachers_name">
-            Organizatör - Doğukan Atalay
-            <a href="#" title="">
-              <!-- {{ event.organizer }}  -->
-            </a>
-          </div>
+          <div class="teachers_name">Organizatör - {{ event.organizer }}</div>
+          <div class="teachers_name">Konum - {{ event.location }}</div>
         </div>
         <div class="courses_info">
           <ul class="list-unstyled">
             <li>
               Tarih: <i class="fas fa-calendar-alt"></i>
-              02.02.2022
-              <!--
               {{
-                new Date(event.events_date).toLocaleString("en-us", {
+                new Date(event.events_date).toLocaleString("tr-tr", {
                   month: "long",
                   day: "numeric",
                   year: "numeric",
                 })
               }}
-              -->
             </li>
           </ul>
 
           <!-- <a href="#" ></a> -->
-          <a href="" class="cart_btn">Ayrıntıları Gör</a>
-          <!-- 
+          <!--  <a href="" class="cart_btn">Ayrıntıları Gör</a> -->
+
           <NuxtLink
             class="cart_btn"
-            :to="{ name: 'events-eventid', params: { eventId: event.id } }"
+            :to="{ name: 'events-eventId', params: { eventId: event.id } }"
             >Ayrıntıları Gör</NuxtLink
-          > -->
+          >
         </div>
       </div>
     </div>
@@ -79,12 +71,10 @@
 <script>
 export default {
   props: {
-    /*
     event: {
       // required: true,
       type: Object,
     },
-    */
   },
   data: function () {
     return {
@@ -97,5 +87,9 @@ export default {
 <style lang="scss">
 .event-card {
   border-radius: 10px !important;
+}
+.cart_btn {
+  width: 150px;
+  font-size: 11px !important;
 }
 </style>

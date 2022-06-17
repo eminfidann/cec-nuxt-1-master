@@ -1,30 +1,5 @@
 <template>
   <header class="header_four">
-    <!-- Preloader -->
-    <div class="header_top">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-sm-12 col-lg-12">
-            <div class="info_wrapper">
-              <div class="contact_info">
-                <ul class="list-unstyled">
-                  <li>
-                    <i class="flaticon-mail-black-envelope-symbol"></i
-                    >{{ cecEmail }}
-                  </li>
-                </ul>
-              </div>
-              <div class="login_info">
-                <nuxt-link to="/signUp" tag="li" class="apply_btn">
-                Giriş Yap
-                </nuxt-link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="edu_nav">
       <div class="container">
         <nav class="navbar navbar-expand-md navbar-light bg-faded">
@@ -40,16 +15,18 @@
                 <a href="#" class="nav-link">ANASAYFA</a>
               </li>
 
-
-               <nuxt-link to="/events" tag="li" class="nav-item">
-                  <a class="nav-link" href="#">ETKİNLİKLER</a>
-               </nuxt-link>
-        
-
-
+              <nuxt-link to="/events" tag="li" class="nav-item">
+                <a class="nav-link" href="#">ETKİNLİKLER</a>
+              </nuxt-link>
 
               <li class="nav-item">
                 <a href="#" class="nav-link">İLETİŞİM</a>
+              </li>
+
+              <li class="">
+                <nuxt-link to="/signUp" class="apply_btn">
+                  Giriş Yap
+                </nuxt-link>
               </li>
             </ul>
           </div>
@@ -74,16 +51,18 @@ export default {
 .flaticon-mail-black-envelope-symbol {
   font-size: 24px !important;
 }
-header {
+.header_four {
   position: absolute !important;
   right: 0;
   left: 0;
   top: 0;
   z-index: 25;
-  border-radius: 20px 20px 0px 0px !important;
+  border-radius: 0px 0px 20px 20px !important;
+  height: 5vh !important;
 }
 .apply_btn {
   text-decoration: none;
+  position: absolute;
 }
 </style>
 
